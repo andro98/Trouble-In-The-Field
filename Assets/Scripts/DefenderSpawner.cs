@@ -20,12 +20,16 @@ public class DefenderSpawner : MonoBehaviour
     }
     private Vector2 SnapToGrid(Vector2 pos)
     {
+        Vector2 newPos;
         float newX = Mathf.RoundToInt(pos.x);
+        newPos.x = (newX <= 0) ? 1 : newX;
         float newY = Mathf.RoundToInt(pos.y);
-        return new Vector2(newX, newY);
+        newPos.y = (newY <= 0) ? 1 : newY;
+        newPos.y = (newY >= 5) ? 5 : newY;
+        return newPos;
     }
     private void SpawnDefender(Vector2 pos)
     {
-        Defender newDefender = Instantiate(defender, pos, Quaternion.identity) as Defender;
+        Defender newDefender = Instantiate(defender, pos, defender.transform.rotation) as Defender;
     }
 }

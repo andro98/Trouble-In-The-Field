@@ -4,9 +4,10 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1.0f;
     [SerializeField] float damage = 100.0f;
+    [SerializeField] Vector2 direction = new Vector2(1, 0);
     void Update()
     {
-        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+        transform.Translate(direction * moveSpeed * Time.deltaTime);
     }
     //  IF PROJECTILE TRIGGER WITH AN ATTACKER THAT HAS A HEALTH SCRIPT
     private void OnTriggerEnter2D(Collider2D other)
