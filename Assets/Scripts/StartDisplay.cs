@@ -16,7 +16,10 @@ public class StartDisplay : MonoBehaviour
     {
         starText.text = stars.ToString();
     }
-
+    public bool HaveEnoughStars(int amout)
+    {
+        return stars >= amout;
+    }
     public void AddStars(int amount)
     {
         stars += amount;
